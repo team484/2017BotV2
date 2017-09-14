@@ -20,10 +20,10 @@ public class GearShooter extends Subsystem {
     }
     
     public void retract() {
-    	RobotIO.gearShootSolenoid.set(Value.kReverse);
+    	RobotIO.gearShootSolenoid.set(Value.kForward);
     }
     public void shoot() {
-    	RobotIO.gearShootSolenoid.set(Value.kForward);
+    	RobotIO.gearShootSolenoid.set(Value.kReverse);
     }
 }
 

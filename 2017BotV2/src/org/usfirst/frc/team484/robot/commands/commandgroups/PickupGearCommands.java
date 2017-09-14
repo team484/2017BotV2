@@ -1,8 +1,9 @@
 package org.usfirst.frc.team484.robot.commands.commandgroups;
 
 import org.usfirst.frc.team484.robot.commands.GearElevatorLower;
+import org.usfirst.frc.team484.robot.commands.GearElevatorLowerSensor;
 import org.usfirst.frc.team484.robot.commands.GearGripperGrip;
-import org.usfirst.frc.team484.robot.commands.GearGripperRelease;
+import org.usfirst.frc.team484.robot.commands.GearGripperReleaseSensor;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -28,9 +29,10 @@ public class PickupGearCommands extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new GearGripperGrip(), 0.5);
-    	addSequential(new GearElevatorLower(), 0.5);
-    	addParallel(new GearElevatorLower());
-    	addParallel(new GearGripperRelease());
+    	addSequential(new GearGripperGrip(), 0.05);
+    	addSequential(new GearElevatorLower(), 0.8);
+    	addParallel(new GearElevatorLowerSensor());
+    	addSequential(new GearGripperReleaseSensor());
+    	addSequential(new EndPickupGearCommands(), 1);
     }
 }

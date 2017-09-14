@@ -31,12 +31,11 @@ public class RobotIO {
 	//HID
 	public static Joystick driverJoystick;
 	public static Joystick operatorJoystick;
+	public static Joystick programmerJoystick;
 	
 	//Encoders
 	public static Encoder leftWheelEnc;
 	public static Encoder rightWheelEnc;
-	public static Encoder frontWheelEnc;
-	public static Encoder rearWheelEnc;
 	
 	//Gyros
 	public static AnalogGyro topGyro;
@@ -66,12 +65,11 @@ public class RobotIO {
 		//HID
 		driverJoystick = new Joystick(RobotMap.driverJoystick);
 		operatorJoystick = new Joystick(RobotMap.operatorJoystick);
+		programmerJoystick = new Joystick(RobotMap.programmerJoystick);
 		
 		//Encoders
 		leftWheelEnc = new Encoder(RobotMap.leftWheelEncA, RobotMap.leftWheelEncB);
 		rightWheelEnc = new Encoder(RobotMap.rightWheelEncA, RobotMap.rightWheelEncB);
-		frontWheelEnc = new Encoder(RobotMap.frontWheelEncA, RobotMap.frontWheelEncB);
-		rearWheelEnc = new Encoder(RobotMap.rearWheelEncA, RobotMap.rearWheelEncB);
 		
 		//Gyros
 		topGyro = new AnalogGyro(RobotMap.topGyro);

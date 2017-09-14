@@ -6,29 +6,19 @@ import edu.wpi.first.wpilibj.tables.ITable;
 
 public class Contour {
     
-    public double centerX, centerY, area, width, height, solidity;
+    public double centerX;
     
-    public Contour(double centerX, double centerY, double area, double width, double height, double solidity) {
+    public Contour(double centerX) {
         this.centerX = centerX;
-        this.centerY = centerY;
-        this.area = area;
-        this.width = width;
-        this.height = height;
-        this.solidity = solidity;
     }
     
     
     public static ArrayList<Contour> getContoursFromTable(ITable table) {
         double[] centerX = table.getNumberArray("centerX", new double[0]);
-        double[] centerY = table.getNumberArray("centerY", new double[0]);
-        double[] area = table.getNumberArray("area", new double[0]);
-        double[] width = table.getNumberArray("width", new double[0]);
-        double[] height = table.getNumberArray("height", new double[0]);
-        double[] solidity = table.getNumberArray("solidity", new double[0]);
         
         ArrayList<Contour> contours = new ArrayList<>();
-        for(int i = 0; i < centerX.length && i < centerY.length && i < area.length && i < width.length && i < height.length && i <solidity.length; i++)
-            contours.add(new Contour(centerX[i], centerY[i], area[i], width[i], height[i], solidity[i]));
+        for(int i = 0; i < centerX.length; i++)
+            contours.add(new Contour(centerX[i]));
         
         return contours;
     }

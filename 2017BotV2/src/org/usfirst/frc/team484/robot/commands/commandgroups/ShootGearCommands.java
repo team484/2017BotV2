@@ -13,7 +13,7 @@ public class ShootGearCommands extends CommandGroup {
 
     public ShootGearCommands() {
     	addParallel(new GearGripperRelease());
-    	addSequential(new WaitCommand(0.5), 0.5);
+    	addSequential(new WaitCommand(0.1), 0.1);
     	addParallel(new GearShooterShoot());
 
     }

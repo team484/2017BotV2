@@ -41,7 +41,7 @@ public class DriveTrainDriveDistance extends Command {
 			
 			@Override
 			public void pidWrite(double output) {
-				Robot.driveTrain.drive(0, output, 0);
+				Robot.driveTrain.drive(output, 0);
 				
 			}
 		});
@@ -51,6 +51,7 @@ public class DriveTrainDriveDistance extends Command {
     protected void initialize() {
     	RobotIO.leftWheelEnc.reset();
     	RobotIO.rightWheelEnc.reset();
+    	pid.setOutputRange(-0.7, 0.7);
     	pid.reset();
     	pid.setSetpoint(setpoint);
     	pid.enable();
@@ -70,7 +71,7 @@ public class DriveTrainDriveDistance extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	pid.disable();
-    	Robot.driveTrain.drive(0, 0, 0);
+    	Robot.driveTrain.drive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

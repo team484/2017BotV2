@@ -19,10 +19,10 @@ public class GearGripper extends Subsystem {
         setDefaultCommand(new GearGripperGrip());
     }
     public void grip() {
-    	RobotIO.gearGripSolenoid.set(Value.kReverse);
+    	RobotIO.gearGripSolenoid.set(Value.kForward);
     }
     public void release() {
-    	RobotIO.gearGripSolenoid.set(Value.kForward);
+    	RobotIO.gearGripSolenoid.set(Value.kReverse);
     }
 }
 

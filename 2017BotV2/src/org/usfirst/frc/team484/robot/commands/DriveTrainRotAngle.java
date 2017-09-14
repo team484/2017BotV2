@@ -41,14 +41,15 @@ public class DriveTrainRotAngle extends Command {
 			
 			@Override
 			public void pidWrite(double output) {
-				Robot.driveTrain.drive(0, 0, output);
+				Robot.driveTrain.drive(0, output);
 				
 			}
-		});
+		}, 0.01);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	pid.setOutputRange(-0.6, 0.6);
     	RobotIO.topGyro.reset();
     	RobotIO.bottomGyro.reset();
     	pid.reset();
@@ -62,15 +63,16 @@ public class DriveTrainRotAngle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs(RobotIO.topGyro.getRate()) < RobotSettings.rotSpeedMargin
-        		&& Math.abs(RobotIO.bottomGyro.getRate()) < RobotSettings.rotSpeedMargin
-        		&& Math.abs(pid.getError()) < RobotSettings.rotErrorMargin;
+        return false;
+    	//return Math.abs(RobotIO.topGyro.getRate()) < RobotSettings.rotSpeedMargin
+        //		&& Math.abs(RobotIO.bottomGyro.getRate()) < RobotSettings.rotSpeedMargin
+        //		&& Math.abs(pid.getError()) < RobotSettings.rotErrorMargin;
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	pid.disable();
-    	Robot.driveTrain.drive(0, 0, 0);
+    	Robot.driveTrain.drive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

@@ -19,10 +19,10 @@ public class GearElevator extends Subsystem {
         setDefaultCommand(new GearElevatorRaise());
     }
     public void raise() {
-    	RobotIO.gearShootSolenoid.set(Value.kReverse);
+    	RobotIO.gearRotSolenoid.set(Value.kForward);
     }
     public void lower() {
-    	RobotIO.gearShootSolenoid.set(Value.kForward);
+    	RobotIO.gearRotSolenoid.set(Value.kReverse);
     }
 }
 

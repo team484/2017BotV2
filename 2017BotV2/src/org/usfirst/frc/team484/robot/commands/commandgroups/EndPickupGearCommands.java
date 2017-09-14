@@ -27,8 +27,8 @@ public class EndPickupGearCommands extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new GearGripperGrip(), 0.5);
-    	addParallel(new GearGripperGrip());
-    	addParallel(new GearElevatorRaise());
+    	addSequential(new GearGripperGrip(), 0.3);
+    	addParallel(new GearGripperGrip(), 0.3);
+    	addParallel(new GearElevatorRaise(), 0.3);
     }
 }
