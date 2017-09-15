@@ -23,9 +23,9 @@ public class DriveTrainDriveWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (RobotIO.driverJoystick.getTrigger()) {
-    		Robot.driveTrain.drive(-RobotIO.driverJoystick.getY()/2, RobotIO.driverJoystick.getX()*0.8);
+    		Robot.driveTrain.drive(-RobotIO.driverJoystick.getY()/2, RobotIO.driverJoystick.getX()*0.7);
     	} else {
-    		Robot.driveTrain.drive(-RobotIO.driverJoystick.getY(), RobotIO.driverJoystick.getX());
+    		Robot.driveTrain.drive(-RobotIO.driverJoystick.getY(), RobotIO.driverJoystick.getX()* 0.7);
     	}
     }
 
