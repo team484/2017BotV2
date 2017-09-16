@@ -6,8 +6,8 @@ public class RobotSettings {
 		public static double drivekP = 0.02;
 		public static double drivekI = 0;
 		public static double drivekD = 0;
-		public static double driveErrorMargin = 5;
-		public static double driveSpeedMargin = 0.1;
+		public static double driveErrorMargin = 9;
+		public static double driveSpeedMargin = 0.5;
 		
 	//Rotate Angle PID Values
 		public static double rotkP = 0.04;

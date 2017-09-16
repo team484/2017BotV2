@@ -25,5 +25,7 @@ public class AutoLeftGearVision extends CommandGroup {
         addParallel(new ShootGearCommands(), 1);
         addSequential(new WaitCommand(0.5), 0.5);
         addSequential(new DriveTrainDriveAtSpeed(-0.5), 1);
+        addSequential(new DriveTrainRotAngle(-60), 1);
+        addSequential(new DriveTrainDriveDistance(120), 5);
     }
 }
