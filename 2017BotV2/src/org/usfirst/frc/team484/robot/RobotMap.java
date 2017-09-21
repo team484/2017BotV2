@@ -11,8 +11,6 @@ public class RobotMap {
 	// Drivetrain
 	public static final int leftWheel = 0;
 	public static final int rightWheel = 1;
-	public static final int frontWheel = 4;
-	public static final int rearWheel = 5;
 
 	// Pneumatics
 	public static final int gearUpSolenoid = 0;

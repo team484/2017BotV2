@@ -6,6 +6,9 @@ import edu.wpi.cscore.VideoMode.PixelFormat;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Value;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -33,8 +36,10 @@ public class Robot extends IterativeRobot {
 	public static GearElevator gearElevator;
 	public static GearGripper gearGripper;
 	public static GearShooter gearShooter;
-
+	
 	public static OI oi;
+	
+	//LocationTracker locTracker;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -76,6 +81,8 @@ public class Robot extends IterativeRobot {
 		initializeIO(); //Sets values for all sensors and IO components
 		setInverts();
 		pdp = new PowerDistributionPanel();
+		//locTracker = new LocationTracker();
+		//locTracker.start();
 	}
 
 	private static void initializeIO() {
@@ -150,14 +157,14 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("LeftClimber", pdp.getCurrent(15));
 		SmartDashboard.putNumber("RightClimber", pdp.getCurrent(0));
+		//SmartDashboard.putNumber("x pos: ", locTracker.x);
+		//SmartDashboard.putNumber("y pos: ", locTracker.y);
 	}
 
 
 	private static void setInverts() {
 		RobotIO.leftWheel.setInverted(RobotSettings.invertLeftMotor);
 		RobotIO.rightWheel.setInverted(RobotSettings.invertRightMotor);
-		RobotIO.frontWheel.setInverted(RobotSettings.invertFrontMotor);
-		RobotIO.rearWheel.setInverted(RobotSettings.invertRearMotor);
 		RobotIO.leftClimber.setInverted(RobotSettings.invertLeftClimber);
 		RobotIO.rightClimber.setInverted(RobotSettings.invertRightClimber);
 	}

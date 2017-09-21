@@ -14,8 +14,6 @@ public class RobotIO {
 	//Drivetrain
 	public static Talon leftWheel;
 	public static Talon rightWheel;
-	public static Talon frontWheel;
-	public static Talon rearWheel;
 	public static RobotDrive robotDrive;
 	
 	//Pneumatics
@@ -48,8 +46,6 @@ public class RobotIO {
 		//Drivetrain
 		leftWheel = new Talon(RobotMap.leftWheel);
 		rightWheel = new Talon(RobotMap.rightWheel);
-		frontWheel = new Talon(RobotMap.frontWheel);
-		rearWheel = new Talon(RobotMap.rearWheel);
 		robotDrive = new RobotDrive(leftWheel, rightWheel);
 		
 		//Pneumatics, forward is considered the extended stae of the piston
