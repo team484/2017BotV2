@@ -54,7 +54,7 @@ public class Robot extends IterativeRobot {
 		try {
 			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 			camera.setFPS(30);
-			camera.setVideoMode(PixelFormat.kMJPEG, 480, 360, 30);
+			camera.setVideoMode(PixelFormat.kMJPEG, 320, 240, 24);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -154,9 +154,12 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopPeriodic() {
+		
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("LeftClimber", pdp.getCurrent(15));
 		SmartDashboard.putNumber("RightClimber", pdp.getCurrent(0));
+		SmartDashboard.putNumber("Top Gyro", RobotIO.topGyro.getAngle());
+		SmartDashboard.putNumber("Bottom Gyro", RobotIO.bottomGyro.getAngle());
 		//SmartDashboard.putNumber("x pos: ", locTracker.x);
 		//SmartDashboard.putNumber("y pos: ", locTracker.y);
 	}

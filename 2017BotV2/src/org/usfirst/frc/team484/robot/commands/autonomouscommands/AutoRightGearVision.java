@@ -5,6 +5,7 @@ import org.usfirst.frc.team484.robot.commands.DriveTrainDriveDistance;
 import org.usfirst.frc.team484.robot.commands.DriveTrainRotAngle;
 import org.usfirst.frc.team484.robot.commands.DriveTrainRotateToVisionAngle;
 import org.usfirst.frc.team484.robot.commands.PauseCompressor;
+import org.usfirst.frc.team484.robot.commands.RobotWaitForVision;
 import org.usfirst.frc.team484.robot.commands.commandgroups.ShootGearCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -20,6 +21,7 @@ public class AutoRightGearVision extends CommandGroup {
     	addParallel(new PauseCompressor(), 5);
     	addSequential(new DriveTrainRotAngle(-60), 1);
     	addSequential(new DriveTrainDriveAtSpeed(0.0), 0.8);
+    	addSequential(new RobotWaitForVision());
         addSequential(new DriveTrainRotateToVisionAngle(),5);
         addSequential(new WaitCommand(0.5));
         addParallel(new ShootGearCommands(), 1);
